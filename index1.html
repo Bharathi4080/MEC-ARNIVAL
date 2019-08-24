@@ -1,1 +1,63 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
+ <title>Title</title>
+ </head>
+ <body>
+    <center><form id="test-form">
+  
+                <div>
+                  <label>Field 1</label>
+                  <input type="text" name="form_field_1" placeholder="Field 1"/>
+                </div>
+              
+                <div>
+                  <label>Field 2</label>
+                  <input type="text" name="form_field_2" placeholder="Field 2"/>
+                </div>
+                
+                <div>
+                  <label>Field 3</label>
+                  <input type="text" name="form_field_3" placeholder="Field 3"/>
+                </div>
+                
+                <div>
+                  <label>Field 4</label>
+                  <input type="text" name="form_field_4" placeholder="Field 4"/>
+                </div>
+              
+                <div>
+                  <button type="submit"id="submit-form">Submit</button>
+                </div>
+              
+              </form></center>
+              
+ <script>
+ var $form = $('form#test-form'),
+    url ='https://script.google.com/macros/s/AKfycbwEulxv6fRfKbn8n6xD9S-gFbnzHO91N206-eiUD0JLG4E4HTzy/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
  
+ 
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ </body>
+ </html>
